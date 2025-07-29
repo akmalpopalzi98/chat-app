@@ -1,4 +1,5 @@
 import { defineAuth } from "@aws-amplify/backend";
+import { postConfirmation } from "./post-confirmation/resource";
 
 export const auth = defineAuth({
   loginWith: {
@@ -15,6 +16,8 @@ export const auth = defineAuth({
       required: true,
     },
   },
-  triggers: {},
+  triggers: {
+    postConfirmation: postConfirmation,
+  },
   name: "ChatAppUserPool",
 });
