@@ -1,0 +1,13 @@
+.input {
+  color: black;
+  transition: border 0.1s ease-in-out;
+
+  &:focus {
+    border: 1px solid black;
+    box-shadow: 0 0 3px black;
+  }
+}
+
+.input::placeholder {
+  color: gray;
+}
