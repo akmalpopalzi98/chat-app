@@ -5,6 +5,7 @@ import { InputComponent } from "../../components/Input/Input";
 import styles from "./index.module.css";
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { isEmailValid } from "../../utils/validateEmail";
+import { Footer } from "../../components/Input/Footer/Footer";
 
 interface LoginObject {
   email: string;
@@ -56,19 +57,27 @@ function WelcomeComponent() {
       </Box>
 
       <Box className={styles.formWrapper}>
-        <Title order={1} className={styles.heading}>
+        <Title order={1} className={styles.heading} pt={"50px"}>
           Enter your email address and password to sign in
         </Title>
 
-        <Box component="form" className={styles.formBox} onSubmit={formSubmit}>
+        <Box
+          component="form"
+          className={styles.formBox}
+          onSubmit={formSubmit}
+          bg={"blue"}
+        >
           <InputComponent
             onChange={handleChange}
             value={login.email}
             name="email"
             placeholder="name@email.com"
             radius={"md"}
-            w={"40%"}
+            w={"50%"}
             error={error}
+            rootHeight="10%"
+            wrapperHeight="100%"
+            inputHeight="100%"
           />
           <InputComponent
             onChange={handleChange}
@@ -77,13 +86,22 @@ function WelcomeComponent() {
             type="password"
             placeholder="********"
             radius={"md"}
-            w={"40%"}
+            w={"50%"}
+            rootHeight="10%"
+            wrapperHeight="100%"
+            inputHeight="100%"
           />
-          <Button w={"40%"} type="submit" disabled={!!error}>
-            Log in
+          <Button
+            w={"50%"}
+            type="submit"
+            disabled={!!error}
+            className={styles.loginButton}
+          >
+            Sign in
           </Button>
         </Box>
       </Box>
+      <Footer />
     </Box>
   );
 }

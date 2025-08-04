@@ -6,8 +6,8 @@
     border: 1px solid black;
     box-shadow: 0 0 3px black;
   }
-}
 
-.input::placeholder {
-  color: gray;
+  &::placeholder {
+    color: gray;
+  }
 }
