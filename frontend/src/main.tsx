@@ -4,7 +4,7 @@ import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
-import { MantineProvider } from "@mantine/core";
+import { MantineProvider, createTheme } from "@mantine/core";
 
 // Create a new router instance
 const router = createRouter({ routeTree });
@@ -16,6 +16,10 @@ declare module "@tanstack/react-router" {
   }
 }
 
+const theme = createTheme({
+  fontFamily: "Red Hat Text, sans-serif",
+});
+
 const App = () => {
   return;
 };
@@ -26,7 +30,7 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
-      <MantineProvider>
+      <MantineProvider theme={theme}>
         <RouterProvider router={router} />
       </MantineProvider>
     </StrictMode>

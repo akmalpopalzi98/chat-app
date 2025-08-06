@@ -52,7 +52,14 @@ function WelcomeComponent() {
 
         <Box className={styles.headerBox2}>
           <Text>New to slack?</Text>
-          <Anchor>Create account</Anchor>
+          <Anchor
+            style={{
+              textDecoration: "none",
+              textDecorationColor: "none",
+            }}
+          >
+            Create account
+          </Anchor>
         </Box>
       </Box>
 
