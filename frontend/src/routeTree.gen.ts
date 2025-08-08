@@ -10,33 +10,47 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as unauthenticatedIndexRouteImport } from './routes/(unauthenticated)/index'
+import { Route as unauthenticatedsignupCreateAccountRouteImport } from './routes/(unauthenticated)/(signup)/create-account'
 
 const unauthenticatedIndexRoute = unauthenticatedIndexRouteImport.update({
   id: '/(unauthenticated)/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const unauthenticatedsignupCreateAccountRoute =
+  unauthenticatedsignupCreateAccountRouteImport.update({
+    id: '/(unauthenticated)/(signup)/create-account',
+    path: '/create-account',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof unauthenticatedIndexRoute
+  '/create-account': typeof unauthenticatedsignupCreateAccountRoute
 }
 export interface FileRoutesByTo {
   '/': typeof unauthenticatedIndexRoute
+  '/create-account': typeof unauthenticatedsignupCreateAccountRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/(unauthenticated)/': typeof unauthenticatedIndexRoute
+  '/(unauthenticated)/(signup)/create-account': typeof unauthenticatedsignupCreateAccountRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/create-account'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/(unauthenticated)/'
+  to: '/' | '/create-account'
+  id:
+    | '__root__'
+    | '/(unauthenticated)/'
+    | '/(unauthenticated)/(signup)/create-account'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   unauthenticatedIndexRoute: typeof unauthenticatedIndexRoute
+  unauthenticatedsignupCreateAccountRoute: typeof unauthenticatedsignupCreateAccountRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +62,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof unauthenticatedIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(unauthenticated)/(signup)/create-account': {
+      id: '/(unauthenticated)/(signup)/create-account'
+      path: '/create-account'
+      fullPath: '/create-account'
+      preLoaderRoute: typeof unauthenticatedsignupCreateAccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   unauthenticatedIndexRoute: unauthenticatedIndexRoute,
+  unauthenticatedsignupCreateAccountRoute:
+    unauthenticatedsignupCreateAccountRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

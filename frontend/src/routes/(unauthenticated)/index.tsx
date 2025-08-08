@@ -1,5 +1,5 @@
 import { Box, Title, Text, Anchor, Button } from "@mantine/core";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { FcWorkflow } from "react-icons/fc";
 import { InputComponent } from "../../components/Input/Input";
 import styles from "./index.module.css";
@@ -51,12 +51,17 @@ function WelcomeComponent() {
         </Box>
 
         <Box className={styles.headerBox2}>
-          <Text>New to slack?</Text>
-          <Anchor
+          <Text
             style={{
-              textDecoration: "none",
-              textDecorationColor: "none",
+              fontSize: "small",
             }}
+          >
+            New to slack?
+          </Text>
+          <Anchor
+            className={styles.anchor}
+            component={Link}
+            to="/create-account"
           >
             Create account
           </Anchor>
@@ -64,7 +69,7 @@ function WelcomeComponent() {
       </Box>
 
       <Box className={styles.formWrapper}>
-        <Title order={1} className={styles.heading} pt={"50px"}>
+        <Title order={1} className={styles.heading}>
           Enter your email address and password to sign in
         </Title>
 
@@ -72,7 +77,7 @@ function WelcomeComponent() {
           component="form"
           className={styles.formBox}
           onSubmit={formSubmit}
-          bg={"blue"}
+          // bg={"blue"}
         >
           <InputComponent
             onChange={handleChange}

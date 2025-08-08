@@ -1,9 +1,15 @@
 .pageContainer {
   display: flex;
-  background-color: blue;
+  /* background-color: blue; */
   flex-direction: column;
   height: 100%;
   align-items: center;
+}
+
+.anchor {
+  font-size: small;
+  font-weight: 600;
+  color: rgb(75, 75, 216);
 }
 
 .headerBox {
@@ -11,11 +17,11 @@
   grid-template-columns: repeat(3, 1fr);
   padding: 48px 0px 40px;
   width: 100%;
-  background-color: brown;
+  /* background-color: brown; */
 }
 
 .headerBox1 {
-  background-color: red;
+  /* background-color: red; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,10 +32,11 @@
   flex-direction: column;
   align-items: end;
   padding-right: 15px;
+  padding-right: 40px;
 }
 
 .formWrapper {
-  background-color: green;
+  /* background-color: green; */
   width: 100%;
   height: 75%;
   max-width: 800px;
@@ -41,6 +48,7 @@
   text-align: center;
   margin-bottom: 20px;
   font-size: 48px;
+  font-weight: 650;
 }
 
 .formBox {
@@ -48,7 +56,7 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  background-color: brown;
+  /* background-color: brown; */
   /* justify-content: center; */
   height: 80%;
 }

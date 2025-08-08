@@ -1,7 +1,6 @@
 :root {
   line-height: 1.5;
   font-weight: 400;
-
   /* color-scheme: light dark; */
   /* color: rgba(255, 255, 255, 0.87); */
   /* background-color: #491a1a; */
@@ -18,10 +17,6 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-}
-
-body {
-  background-color: palevioletred;
 }
 
 * {
