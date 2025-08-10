@@ -1,10 +1,15 @@
 import "@mantine/core/styles.css";
 import "./index.css";
-import { StrictMode } from "react";
+import { StrictMode, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 import { MantineProvider, createTheme } from "@mantine/core";
+import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react";
+import outputs from "../../backend/amplify_outputs.json";
+import { Amplify } from "aws-amplify";
+
+Amplify.configure(outputs);
 
 // Create a new router instance
 const router = createRouter({ routeTree });
@@ -21,7 +26,16 @@ const theme = createTheme({
 });
 
 const App = () => {
-  return;
+  const { authStatus } = useAuthenticator((context) => [context.authStatus]);
+  useEffect(() => {
+    console.log("auth status changed:", authStatus);
+  }, [authStatus]);
+
+  return (
+    <MantineProvider theme={theme}>
+      <RouterProvider router={router} />
+    </MantineProvider>
+  );
 };
 
 // Render the app
@@ -30,9 +44,9 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
-      <MantineProvider theme={theme}>
-        <RouterProvider router={router} />
-      </MantineProvider>
+      <Authenticator.Provider>
+        <App />
+      </Authenticator.Provider>
     </StrictMode>
   );
 }

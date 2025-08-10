@@ -4,7 +4,7 @@ export const isEmailValid = (
   if (!email)
     return {
       isValid: false,
-      message: "Please enter you email",
+      message: "Please enter your email",
     };
   const allowedDomains = [
     "yahoo.com",
