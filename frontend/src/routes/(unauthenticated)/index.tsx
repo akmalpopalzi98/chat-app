@@ -21,7 +21,7 @@ function WelcomeComponent() {
     email: "",
     password: "",
   });
-  const [error, setError] = useState<undefined | string>(undefined);
+  const [error, setError] = useState<null | string>(null);
 
   const formSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -37,7 +37,7 @@ function WelcomeComponent() {
     }));
     if (name == "email") {
       const result = isEmailValid(e.target.value);
-      if (result.isValid) setError(undefined);
+      if (result.isValid) setError(null);
     }
   };
 

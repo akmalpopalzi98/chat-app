@@ -1,6 +1,6 @@
 export const isEmailValid = (
   email: string | undefined
-): { isValid: boolean; message?: string } => {
+): { isValid: boolean; message: string | null } => {
   if (!email)
     return {
       isValid: false,
@@ -29,5 +29,5 @@ export const isEmailValid = (
     };
   }
 
-  return { isValid: true };
+  return { isValid: true, message: null };
 };
