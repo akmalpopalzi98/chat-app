@@ -5,7 +5,7 @@ import { InputComponent } from "../../components/Input/Input";
 import styles from "./index.module.css";
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { isEmailValid } from "../../utils/validateEmail";
-import { Footer } from "../../components/Input/Footer/Footer";
+import { Footer } from "../../components/Footer/Footer";
 
 interface LoginObject {
   email: string;
@@ -88,8 +88,8 @@ function WelcomeComponent() {
             w={"50%"}
             error={error}
             rootHeight="10%"
-            wrapperHeight="100%"
-            inputHeight="100%"
+            wrapperHeight="70%"
+            inputHeight="80%"
           />
           <InputComponent
             onChange={handleChange}
@@ -100,8 +100,8 @@ function WelcomeComponent() {
             radius={"md"}
             w={"50%"}
             rootHeight="10%"
-            wrapperHeight="100%"
-            inputHeight="100%"
+            wrapperHeight="70%"
+            inputHeight="80%"
           />
           <Button
             w={"50%"}

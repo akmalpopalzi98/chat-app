@@ -5,7 +5,7 @@ import { type ChangeEvent } from "react";
 import { isEmailValid } from "../../../utils/validateEmail";
 import { FcWorkflow } from "react-icons/fc";
 import { InputComponent } from "../../../components/Input/Input";
-import { Footer } from "../../../components/Input/Footer/Footer";
+import { Footer } from "../../../components/Footer/Footer";
 import { useValidation } from "../../../hooks/useValidation";
 
 export const Route = createFileRoute(
@@ -90,8 +90,8 @@ function RouteComponent() {
                 w="50%"
                 error={emailError}
                 rootHeight="10%"
-                wrapperHeight="100%"
-                inputHeight="100%"
+                wrapperHeight="70%"
+                inputHeight="80%"
               />
               <InputComponent
                 onChange={handleChange}
@@ -102,8 +102,8 @@ function RouteComponent() {
                 radius="md"
                 w="50%"
                 rootHeight="10%"
-                wrapperHeight="100%"
-                inputHeight="100%"
+                wrapperHeight="70%"
+                inputHeight="80%"
               />
               <InputComponent
                 onChange={handleChange}
@@ -114,8 +114,8 @@ function RouteComponent() {
                 radius="md"
                 w="50%"
                 rootHeight="10%"
-                wrapperHeight="100%"
-                inputHeight="100%"
+                wrapperHeight="70%"
+                inputHeight="80%"
               />
               <InputComponent
                 onChange={handleChange}
@@ -127,8 +127,8 @@ function RouteComponent() {
                 radius="md"
                 w="50%"
                 rootHeight="10%"
-                wrapperHeight="100%"
-                inputHeight="100%"
+                wrapperHeight="70%"
+                inputHeight="80%"
               />
               <Button
                 w="50%"

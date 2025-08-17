@@ -23,6 +23,7 @@ export const InputComponent = ({
         },
         wrapper: {
           height: wrapperHeight,
+          margin: 0,
         },
         input: {
           height: inputHeight,
