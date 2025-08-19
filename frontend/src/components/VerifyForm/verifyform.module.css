@@ -1,0 +1,14 @@
+.heading {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 48px;
+  font-weight: 650;
+}
+
+.loginButton {
+  background-color: purple;
+  border-radius: 10px;
+  &:hover {
+    background-color: rgb(154, 71, 154);
+  }
+}

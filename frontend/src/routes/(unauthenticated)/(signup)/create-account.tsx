@@ -1,12 +1,13 @@
-import { Box, Button, Title } from "@mantine/core";
+import { Box, Title } from "@mantine/core";
 import { createFileRoute } from "@tanstack/react-router";
 import styles from "../index.module.css";
 import { type ChangeEvent } from "react";
 import { isEmailValid } from "../../../utils/validateEmail";
 import { FcWorkflow } from "react-icons/fc";
-import { InputComponent } from "../../../components/Input/Input";
 import { Footer } from "../../../components/Footer/Footer";
 import { useValidation } from "../../../hooks/useValidation";
+import { SignUpForm } from "../../../components/SignUpForm/SignUpForm";
+import { VerifyForm } from "../../../components/VerifyForm/VerifyForm";
 
 export const Route = createFileRoute(
   "/(unauthenticated)/(signup)/create-account"
@@ -25,6 +26,12 @@ function RouteComponent() {
     nextAction,
     formSubmit,
     login,
+    signUpError,
+    setNameError,
+    confirmMessage,
+    setVerificationCode,
+    verificationCode,
+    handleVerificationSubmit,
   } = useValidation();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -46,6 +53,10 @@ function RouteComponent() {
       return nextLogin;
     });
 
+    if (name == "fullname") {
+      setNameError(value ? null : "Please enter your full name");
+    }
+
     if (name === "email") {
       const result = isEmailValid(value);
       if (result.isValid) {
@@ -65,85 +76,27 @@ function RouteComponent() {
 
       <Box className={styles.formWrapper}>
         {nextAction ? (
-          // If nextAction is set, show verification message
-          <Title order={2} className={styles.heading}>
-            {nextAction}
-          </Title>
+          <VerifyForm
+            onSubmit={handleVerificationSubmit}
+            nextAction={nextAction}
+            verificationCode={verificationCode}
+            setVerificationCode={setVerificationCode}
+            confirmMessage={confirmMessage}
+            signUpError={signUpError}
+            email={login.email}
+          />
         ) : (
-          // Else show the form
-          <>
-            <Title order={1} className={styles.heading}>
-              Enter an email address to create an account
-            </Title>
-
-            <Box
-              component="form"
-              className={styles.formBox}
-              onSubmit={formSubmit}
-            >
-              <InputComponent
-                onChange={handleChange}
-                value={login.email}
-                name="email"
-                placeholder="name@email.com"
-                radius="md"
-                w="50%"
-                error={emailError}
-                rootHeight="10%"
-                wrapperHeight="70%"
-                inputHeight="80%"
-              />
-              <InputComponent
-                onChange={handleChange}
-                value={login.fullname}
-                error={nameError}
-                name="fullname"
-                placeholder="John Doe"
-                radius="md"
-                w="50%"
-                rootHeight="10%"
-                wrapperHeight="70%"
-                inputHeight="80%"
-              />
-              <InputComponent
-                onChange={handleChange}
-                value={login.password}
-                name="password"
-                type="password"
-                placeholder="********"
-                radius="md"
-                w="50%"
-                rootHeight="10%"
-                wrapperHeight="70%"
-                inputHeight="80%"
-              />
-              <InputComponent
-                onChange={handleChange}
-                value={login.repeatPassword}
-                name="repeatPassword"
-                type="password"
-                error={passwordError}
-                placeholder="********"
-                radius="md"
-                w="50%"
-                rootHeight="10%"
-                wrapperHeight="70%"
-                inputHeight="80%"
-              />
-              <Button
-                w="50%"
-                mt={10}
-                type="submit"
-                disabled={!!emailError || !!passwordError}
-                className={styles.loginButton}
-              >
-                Sign up
-              </Button>
-            </Box>
-          </>
+          <SignUpForm
+            signUpError={signUpError}
+            login={login}
+            onSubmit={formSubmit}
+            handleChange={handleChange}
+            nameError={nameError}
+            passwordError={passwordError}
+            emailError={emailError}
+          />
         )}
       </Box>
-
       <Footer />
     </Box>
   );

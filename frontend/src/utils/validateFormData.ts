@@ -17,8 +17,8 @@ export const validateFormData = (e: FormEvent<HTMLFormElement>) => {
   };
 
   const form = e.currentTarget;
-  const email = form.email.value.trim();
-  const fullname = form.fullname.value.trim();
+  const email = form.email.value;
+  const fullname = form.fullname.value;
   const password = form.password.value;
   const repeatPassword = form.repeatPassword.value;
   const emailValidation = isEmailValid(email);

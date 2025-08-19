@@ -2,9 +2,9 @@ import { TextInput, type TextInputProps } from "@mantine/core";
 import styles from "./input.module.css";
 
 interface CustomInputProps extends TextInputProps {
-  wrapperHeight: string;
-  rootHeight: string;
-  inputHeight: string;
+  wrapperHeight?: string;
+  rootHeight?: string;
+  inputHeight?: string;
 }
 
 export const InputComponent = ({

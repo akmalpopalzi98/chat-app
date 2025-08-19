@@ -3,13 +3,7 @@ import { postConfirmation } from "./post-confirmation/resource";
 
 export const auth = defineAuth({
   loginWith: {
-    email: {
-      verificationEmailStyle: "LINK",
-      verificationEmailSubject: "Welcome! Please activate your account",
-      verificationEmailBody(createLink) {
-        return `Use this code to activate your account => ${createLink()}`;
-      },
-    },
+    email: true,
   },
   userAttributes: {
     fullname: {
