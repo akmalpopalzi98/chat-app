@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sandbox": "npx ampx sandbox --profile amplifygen2",
-    "delete-sandbox": "npx ampx sandbox delete --profile amplifygen2"
+    "sandbox": "npx ampx sandbox",
+    "delete-sandbox": "npx ampx sandbox delete"
   },
   "keywords": [],
   "author": "",
