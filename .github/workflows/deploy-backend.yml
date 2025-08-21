@@ -19,5 +19,7 @@ jobs:
           aws-region: us-east-1
       - name: Test AWS credentials
         run: aws sts get-caller-identity
+      - name: Install Node types
+        run: npm install --workspace=backend --save-dev @types/node
       - name: Deploy backend to AWS
         run: npm run sandbox
