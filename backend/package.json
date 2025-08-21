@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sandbox": "npx ampx sandbox",
-    "delete-sandbox": "npx ampx sandbox delete"
+    "delete-sandbox": "npx ampx sandbox delete",
+    "deploy": "npx ampx deploy"
   },
   "keywords": [],
   "author": "",

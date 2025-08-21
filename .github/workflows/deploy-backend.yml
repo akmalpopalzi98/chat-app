@@ -22,4 +22,4 @@ jobs:
       - name: Install Node types
         run: npm install --workspace=backend --save-dev @types/node
       - name: Deploy backend to AWS
-        run: npm run sandbox
+        run: npm run deploy
