@@ -29,4 +29,4 @@ jobs:
           cd backend
           npx ampx pipeline-deploy --branch ${{github.ref_name}} --app-id didb9rcjmid9h
       - name: Print outputs.json file
-        run: cat backend/outputs.json
+        run: cat backend/amplify_outputs.json
