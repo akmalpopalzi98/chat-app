@@ -1,10 +1,13 @@
 import { defineBackend } from "@aws-amplify/backend";
 import { auth } from "./auth/resource";
 import { data } from "./data/resource";
-import { webHostingBucket } from "./storage/resource";
+import { WebHostingStack } from "./hosting/resource";
 
 const backend = defineBackend({
   auth,
   data,
-  webHostingBucket,
 });
+
+export type Backend = typeof backend;
+
+const hostingBucket = new WebHostingStack(backend, "HostingStack", {});

@@ -6,7 +6,7 @@ import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 import { MantineProvider, createTheme } from "@mantine/core";
 import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react";
-import outputs from "../../backend/amplify_outputs.json";
+import outputs from "../amplify_outputs.json";
 import { Amplify } from "aws-amplify";
 
 Amplify.configure(outputs);

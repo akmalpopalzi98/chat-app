@@ -1,5 +1,5 @@
 import { defineStorage } from "@aws-amplify/backend";
 
 export const webHostingBucket = defineStorage({
-  name: "hostingBucket",
+  name: "webHostingBucket",
 });
