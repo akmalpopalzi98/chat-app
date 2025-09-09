@@ -32,7 +32,7 @@ jobs:
           cd backend
           npx ampx pipeline-deploy --branch ${{github.ref_name}} --app-id didb9rcjmid9h
       - name: Upload amplify_outputs.json as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: amplify-outputs
           path: backend/amplify_outputs.json
